@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+</head>
+<body>
+<h1>Edit My City</h1>
+<p>
+    <a th:href="@{/listMyCitys}">
+        Back to My City list
+    </a>
+</p>
+
+<form th:object="${editMycitys}" method="post">
+    <input type="hidden" name="id" th:field="*{id}">
+    <table>
+        <tr>
+            <td>Name City:</td>
+            <td><input type="text" th:field="*{name}"/></td>
+        </tr>
+        <tr>
+            <td>Nation Type:</td>
+            <td>
+                <select th:field="*{nation}" th:name="nation">
+                    <option th:each="c:${nation}" th:value="${c.id}" th:text="${c.nameNation}"></option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>Area City:</td>
+            <td><input type="text" th:field="*{area}"/></td>
+        </tr>
+        <tr>
+            <td>Population City:</td>
+            <td><input type="text" th:field="*{population}"/></td>
+        </tr>
+        <tr>
+            <td>GDP City:</td>
+            <td><input type="text" th:field="*{gdp}"/></td>
+        </tr>
+        <tr>
+            <td>Description City:</td>
+            <td><textarea type="text" th:field="*{description}"></textarea></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit" value="Edit My City"></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>
